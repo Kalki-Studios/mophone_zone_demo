@@ -12,7 +12,7 @@ const AdminLayout = React.lazy(() => import('./pages/admin/Layout'));
 const App = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div style={{ padding: '20px' }}>Loading...</div>}>
+      <Suspense fallback={null}>
         <Routes>
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />

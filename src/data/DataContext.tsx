@@ -3,6 +3,7 @@ import type { DataProvider } from './provider';
 import { localProvider } from './localProvider';
 import type { Phone, Offer, RepairItem, AccessoryCategory, ShopInfo } from './types';
 import { initialShopInfo } from './seed';
+import { PremiumLoader } from '../components/PremiumLoader/PremiumLoader';
 
 interface DataContextType {
   provider: DataProvider;
@@ -27,19 +28,32 @@ export const DataProviderWrapper: React.FC<{ children: React.ReactNode }> = ({ c
 
   const refreshData = async () => {
     setIsLoading(true);
-    const [p, o, r, a, s] = await Promise.all([
-      localProvider.getPhones(),
-      localProvider.getOffers(),
-      localProvider.getRepairItems(),
-      localProvider.getAccessories(),
-      localProvider.getShopInfo(),
-    ]);
-    setPhones(p);
-    setOffers(o);
-    setRepairItems(r);
-    setAccessories(a);
-    setShopInfo(s);
-    setIsLoading(false);
+    const startTime = Date.now();
+    try {
+      const [p, o, r, a, s] = await Promise.all([
+        localProvider.getPhones(),
+        localProvider.getOffers(),
+        localProvider.getRepairItems(),
+        localProvider.getAccessories(),
+        localProvider.getShopInfo(),
+      ]);
+      setPhones(p);
+      setOffers(o);
+      setRepairItems(r);
+      setAccessories(a);
+      setShopInfo(s);
+
+    } catch (error) {
+      console.error("Error loading data:", error);
+    } finally {
+      // Ensure the premium loader shows for a short time
+      const elapsedTime = Date.now() - startTime;
+      const minLoaderTime = 1000; // Time in milliseconds (e.g. 500 = 0.5 seconds)
+      if (elapsedTime < minLoaderTime) {
+        await new Promise(resolve => setTimeout(resolve, minLoaderTime - elapsedTime));
+      }
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -57,6 +71,7 @@ export const DataProviderWrapper: React.FC<{ children: React.ReactNode }> = ({ c
       refreshData,
       isLoading
     }}>
+      <PremiumLoader isLoading={isLoading} />
       {children}
     </DataContext.Provider>
   );
