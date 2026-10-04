@@ -9,7 +9,7 @@ const KEYS = {
   REPAIR: 'mz_repair',
   ACCESSORIES: 'mz_accessories',
   SHOP_INFO: 'mz_shop_info',
-  INITIALIZED: 'mz_initialized',
+  INITIALIZED: 'mz_initialized_v2', // bumped version to force refresh
 };
 
 export const localProvider: DataProvider = {
