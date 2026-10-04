@@ -1,6 +1,5 @@
 import React from 'react';
 import './StickyMobileBar.css';
-import { Button } from '../Button/Button';
 import { useLanguage } from '../../i18n';
 import { useData } from '../../data/DataContext';
 
@@ -8,21 +7,19 @@ export const StickyMobileBar = () => {
   const { t } = useLanguage();
   const { shopInfo } = useData();
 
-  const phoneHref = `tel:+${shopInfo.phones.primary}`;
   const whatsappHref = `https://wa.me/${shopInfo.whatsappNumber}?text=${encodeURIComponent(t('cta.askWhatsapp'))}`;
-  const mapHref = "https://www.google.com/maps/search/?api=1&query=Mo+PhoneZone+Semiliguda+Koraput+Odisha";
 
   return (
-    <div className="mz-sticky-mobile-bar">
-      <Button as="a" href={phoneHref} variant="outline" className="mz-smb-btn">
-        {t('cta.call')}
-      </Button>
-      <Button as="a" href={whatsappHref} variant="whatsapp" className="mz-smb-btn">
-        {t('cta.whatsapp')}
-      </Button>
-      <Button as="a" href={mapHref} variant="primary" className="mz-smb-btn" target="_blank" rel="noopener noreferrer">
-        {t('cta.directions')}
-      </Button>
-    </div>
+    <a 
+      href={whatsappHref} 
+      className="mz-floating-whatsapp" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="WhatsApp Us"
+    >
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+        <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.02L.032 24l6.104-1.602a11.95 11.95 0 0 0 5.895 1.547h.005c6.645 0 12.03-5.384 12.03-12.03S18.675 0 12.031 0zm0 21.94c-1.802 0-3.565-.483-5.11-1.4l-.367-.217-3.799 1.002.998-3.704-.239-.38C2.551 15.545 2.032 13.824 2.032 12.03c0-5.513 4.49-10.003 10.004-10.003 2.671 0 5.183 1.042 7.07 2.93a10.002 10.002 0 0 1 2.932 7.074c-.001 5.514-4.49 10.003-10.005 10.003zm5.485-7.502c-.3-.151-1.782-.88-2.058-.98-.276-.101-.476-.151-.676.15-.201.301-.777.98-.952 1.18-.176.202-.351.226-.651.076-.3-.151-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.676-2.085-.176-.3-.018-.464.133-.614.136-.135.3-.3.45-.451.152-.15.202-.25.302-.45.1-.2.05-.375-.025-.525-.075-.15-.676-1.63-.926-2.23-.243-.585-.49-.505-.676-.514l-.576-.01c-.201 0-.527.076-.802.376-.276.3-1.053 1.028-1.053 2.508 0 1.48 1.078 2.91 1.228 3.11.15.201 2.116 3.23 5.127 4.53.717.31 1.277.494 1.714.633.72.23 1.374.197 1.888.12.574-.086 1.782-.728 2.033-1.431.25-.703.25-1.307.175-1.432-.075-.125-.275-.2-.575-.35z"/>
+      </svg>
+    </a>
   );
 };

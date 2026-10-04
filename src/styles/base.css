@@ -14,13 +14,6 @@ body {
   font-family: var(--font-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: calc(56px + env(safe-area-inset-bottom));
-}
-
-@media (min-width: 900px) {
-  body {
-    padding-bottom: 0;
-  }
 }
 
 h1, h2, h3, h4, h5, h6 {

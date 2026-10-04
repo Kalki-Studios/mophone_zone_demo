@@ -1,50 +1,25 @@
-.mz-sticky-mobile-bar {
+.mz-floating-whatsapp {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: calc(56px + env(safe-area-inset-bottom));
-  background-color: var(--paper);
-  border-top: var(--line);
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
   display: flex;
-  z-index: 100;
-  padding-bottom: env(safe-area-inset-bottom);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.mz-smb-btn {
-  flex: 1;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  border-right: var(--line) !important;
-  font-size: 0.875rem !important;
-  padding: 0 4px !important;
+.mz-floating-whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
-.mz-smb-btn:last-child {
-  border-right: none !important;
-}
-
-.mz-smb-btn:hover {
-  transform: none !important;
-}
-
-.mz-smb-btn:active {
-  background-color: var(--paper-2) !important;
-  transform: none !important;
-}
-
-.mz-smb-btn.mz-btn-primary:active {
-  background-color: #0c8a86 !important;
-}
-
-.mz-smb-btn.mz-btn-whatsapp:active {
-  background-color: #1ebd5a !important;
-}
-
-/* Hide on desktop or inside admin (admin logic handled in layout/app) */
-@media (min-width: 900px) {
-  .mz-sticky-mobile-bar {
-    display: none;
-  }
+.mz-floating-whatsapp:active {
+  transform: scale(0.95);
 }
