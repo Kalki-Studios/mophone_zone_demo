@@ -1,0 +1,32 @@
+.mz-shop-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-1) var(--s-3);
+  background-color: var(--paper-2);
+  border: var(--line);
+  border-radius: var(--r-1);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.mz-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: var(--line);
+  flex-shrink: 0;
+}
+
+.mz-status-dot-open {
+  background-color: var(--teal);
+}
+
+.mz-status-dot-closing {
+  background-color: var(--yellow);
+}
+
+.mz-status-dot-closed {
+  background-color: var(--red);
+}

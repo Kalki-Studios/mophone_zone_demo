@@ -1,0 +1,193 @@
+/* ── Samsung Style Product Card ── */
+.mz-samsung-card {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25,1,0.5,1);
+  cursor: default;
+  height: 100%;
+}
+
+.mz-samsung-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.mz-samsung-card.is-sold .mz-samsung-card-image img {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.mz-samsung-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.mz-samsung-card.is-sold .mz-samsung-card-badge {
+  background: #666;
+}
+
+.mz-samsung-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px 12px;
+  background: #f0f0f0;
+  text-decoration: none;
+}
+
+.mz-samsung-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+  transition: transform 0.4s cubic-bezier(0.25,1,0.5,1);
+}
+
+.mz-samsung-card:hover .mz-samsung-card-image img {
+  transform: scale(1.06);
+}
+
+.mz-samsung-card-info {
+  width: 100%;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.mz-samsung-card-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-card-title {
+    font-size: 1.05rem;
+  }
+}
+
+.mz-samsung-card-specs {
+  font-size: 0.78rem;
+  color: #888;
+  margin: 0 0 14px;
+}
+
+.mz-samsung-card-pricing {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: auto;
+}
+
+.mz-samsung-card-price {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mz-samsung-card-mrp {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.mz-samsung-card-discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #e05c2f;
+  background: rgba(224, 92, 47, 0.1);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.mz-samsung-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .mz-samsung-card-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Button styles specific to cards (extracted from Home.css) */
+.mz-samsung-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px 20px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.mz-samsung-btn-primary:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.mz-samsung-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px 20px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.mz-samsung-btn-outline:hover {
+  background: var(--ink);
+  color: #fff;
+}

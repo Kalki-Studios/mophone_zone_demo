@@ -1,0 +1,173 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Accessories Page — Samsung-style
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mz-accessories-page {
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.mz-accessories-header {
+  text-align: center;
+  padding: 80px 20px 48px;
+  background: #fff;
+}
+
+.mz-accessories-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 12px 0 20px;
+  line-height: 1.05;
+}
+
+.mz-accessories-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Main container ───────────────────────────────────────────────────────── */
+.mz-accessories-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+@media (min-width: 900px) {
+  .mz-accessories-container {
+    padding: 0 40px 100px;
+  }
+}
+
+/* ── Category Tabs ────────────────────────────────────────────────────────── */
+.mz-accessories-tabs-wrapper {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid #e5e5e5;
+}
+
+.mz-accessories-tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.mz-accessories-tabs {
+  display: inline-flex;
+  gap: 0;
+  min-width: max-content;
+}
+
+.mz-acc-tab {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #888;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  transition: color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+
+.mz-acc-tab:hover {
+  color: var(--ink);
+}
+
+.mz-acc-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ── Results count ────────────────────────────────────────────────────────── */
+.mz-acc-results {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 28px;
+  text-align: right;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────────────── */
+.mz-accessories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 900px) {
+  .mz-accessories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Accessory card overrides (inherits .mz-samsung-product-card) ─────────── */
+.mz-acc-card {
+  cursor: pointer;
+}
+
+.mz-acc-card .mz-samsung-product-image img {
+  mix-blend-mode: normal; /* accessories look better without multiply blend */
+}
+
+/* ── CTA Banner ───────────────────────────────────────────────────────────── */
+.mz-acc-cta-banner {
+  background: var(--ink);
+  border-radius: 24px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .mz-acc-cta-banner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}
+
+.mz-acc-cta-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.mz-acc-cta-text p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 480px;
+}
+
+.mz-acc-cta-banner .mz-samsung-btn-primary {
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--ink);
+}
+
+.mz-acc-cta-banner .mz-samsung-btn-primary:hover {
+  background: #f0f0f0;
+}

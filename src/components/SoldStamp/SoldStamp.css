@@ -1,0 +1,15 @@
+.mz-sold-stamp {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--red);
+  background-color: var(--paper);
+  border: 3px solid var(--red);
+  border-radius: var(--r-1);
+  padding: 4px 12px;
+  transform: rotate(-8deg);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-block;
+  white-space: nowrap;
+}

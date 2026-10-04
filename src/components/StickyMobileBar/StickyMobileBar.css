@@ -1,0 +1,50 @@
+.mz-sticky-mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(56px + env(safe-area-inset-bottom));
+  background-color: var(--paper);
+  border-top: var(--line);
+  display: flex;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mz-smb-btn {
+  flex: 1;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border-right: var(--line) !important;
+  font-size: 0.875rem !important;
+  padding: 0 4px !important;
+}
+
+.mz-smb-btn:last-child {
+  border-right: none !important;
+}
+
+.mz-smb-btn:hover {
+  transform: none !important;
+}
+
+.mz-smb-btn:active {
+  background-color: var(--paper-2) !important;
+  transform: none !important;
+}
+
+.mz-smb-btn.mz-btn-primary:active {
+  background-color: #0c8a86 !important;
+}
+
+.mz-smb-btn.mz-btn-whatsapp:active {
+  background-color: #1ebd5a !important;
+}
+
+/* Hide on desktop or inside admin (admin logic handled in layout/app) */
+@media (min-width: 900px) {
+  .mz-sticky-mobile-bar {
+    display: none;
+  }
+}

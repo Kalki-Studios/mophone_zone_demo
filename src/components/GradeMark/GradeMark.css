@@ -1,0 +1,14 @@
+.mz-grade-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--paper);
+  color: var(--ink);
+  border: var(--line);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1;
+}

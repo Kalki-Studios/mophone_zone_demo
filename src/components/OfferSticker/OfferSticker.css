@@ -1,0 +1,46 @@
+.mz-offer-sticker {
+  background-color: var(--yellow);
+  border: var(--line);
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-hard);
+  padding: var(--s-4);
+  min-width: 240px;
+  max-width: 320px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.mz-offer-sticker.mz-rot-left {
+  transform: rotate(-1.5deg);
+}
+
+.mz-offer-sticker.mz-rot-right {
+  transform: rotate(1deg);
+}
+
+.mz-offer-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.mz-offer-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.mz-offer-ends {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: auto;
+}

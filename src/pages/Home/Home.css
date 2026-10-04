@@ -1,0 +1,477 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Home — Samsung-style layout
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mz-home-samsung {
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* ── Section shell ────────────────────────────────────────────────────────── */
+.mz-samsung-section {
+  padding: 64px 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-section {
+    padding: 96px 40px;
+  }
+}
+
+/* ── Section eyebrow + title ──────────────────────────────────────────────── */
+.mz-section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 12px;
+}
+
+.mz-samsung-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0 0 40px;
+  line-height: 1.1;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.mz-samsung-tabs {
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 48px;
+  border-bottom: 1.5px solid #e5e5e5;
+}
+
+.mz-samsung-tab {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #888;
+  cursor: pointer;
+  padding: 10px 28px;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;   /* overlap the row border */
+  transition: color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+
+.mz-samsung-tab:hover {
+  color: var(--ink);
+}
+
+.mz-samsung-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ── Product grid ─────────────────────────────────────────────────────────── */
+.mz-samsung-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Product card ─────────────────────────────────────────────────────────── */
+.mz-samsung-product-card {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25,1,0.5,1);
+  cursor: default;
+}
+
+.mz-samsung-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+/* ── Badge ────────────────────────────────────────────────────────────────── */
+.mz-product-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ── Product image ────────────────────────────────────────────────────────── */
+.mz-samsung-product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px 12px;
+  background: #f0f0f0;
+}
+
+.mz-samsung-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+  transition: transform 0.4s cubic-bezier(0.25,1,0.5,1);
+}
+
+.mz-samsung-product-card:hover .mz-samsung-product-image img {
+  transform: scale(1.06);
+}
+
+/* ── Product info block ───────────────────────────────────────────────────── */
+.mz-product-info {
+  width: 100%;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+
+.mz-samsung-product-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-product-title {
+    font-size: 1.05rem;
+  }
+}
+
+.mz-product-storage {
+  font-size: 0.78rem;
+  color: #888;
+  margin: 0 0 14px;
+}
+
+/* ── Pricing ──────────────────────────────────────────────────────────────── */
+.mz-product-pricing {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mz-product-price {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mz-product-mrp {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.mz-product-discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #e05c2f;
+  background: rgba(224, 92, 47, 0.1);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* ── Card actions ─────────────────────────────────────────────────────────── */
+.mz-samsung-product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .mz-samsung-product-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.mz-samsung-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px 20px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.mz-samsung-btn-primary:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.mz-samsung-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px 20px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.mz-samsung-btn-outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ── View-all link ────────────────────────────────────────────────────────── */
+.mz-section-view-all {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Secondary promo banner ───────────────────────────────────────────────── */
+.mz-samsung-promo-banner {
+  display: flex;
+  flex-direction: column;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-promo-banner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.mz-samsung-promo-content {
+  flex: 1;
+  padding: 60px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-promo-content {
+    text-align: left;
+    padding: 80px 8%;
+  }
+}
+
+.mz-samsung-promo-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.mz-samsung-promo-content p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+
+.mz-samsung-promo-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-promo-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* ── Repair service chips ─────────────────────────────────────────────────── */
+.mz-repair-chips {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .mz-repair-chips {
+    justify-content: flex-start;
+  }
+}
+
+.mz-repair-chips li {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 20px;
+  padding: 5px 13px;
+  white-space: nowrap;
+}
+
+.mz-samsung-promo-image {
+  flex: 1;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .mz-samsung-promo-image {
+    min-height: 480px;
+  }
+}
+
+.mz-samsung-promo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.mz-samsung-promo-banner:hover .mz-samsung-promo-image img {
+  transform: scale(1.03);
+}
+
+/* ── Discover grid ────────────────────────────────────────────────────────── */
+.mz-samsung-discover-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .mz-samsung-discover-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mz-samsung-discover-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f4f4f4;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.25,1,0.5,1);
+}
+
+.mz-samsung-discover-card:hover {
+  transform: translateY(-4px);
+}
+
+.mz-samsung-discover-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease;
+}
+
+.mz-samsung-discover-card:hover img {
+  transform: scale(1.05);
+}
+
+.mz-samsung-discover-info {
+  position: relative;
+  z-index: 10;
+  padding: 40px 24px;
+  text-align: center;
+  margin-top: auto;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  color: #fff;
+}
+
+.mz-samsung-discover-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.mz-samsung-discover-info p {
+  font-size: 0.9rem;
+  margin: 0 0 20px;
+  opacity: 0.85;
+}
+
+.mz-samsung-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(255,255,255,0.5);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+
+.mz-samsung-link:hover {
+  border-color: #fff;
+}

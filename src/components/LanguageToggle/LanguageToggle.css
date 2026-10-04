@@ -1,0 +1,28 @@
+.mz-lang-toggle {
+  display: inline-flex;
+  border: var(--line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+  background-color: var(--paper);
+}
+
+.mz-lang-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.mz-lang-btn.active {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.mz-lang-btn:not(:first-child) {
+  border-left: var(--line);
+}

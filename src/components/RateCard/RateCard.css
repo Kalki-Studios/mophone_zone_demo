@@ -1,0 +1,50 @@
+.mz-rate-card {
+  width: 100%;
+}
+
+.mz-rate-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.mz-rate-row {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.mz-rate-service {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.mz-rs-name {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.mz-rs-note {
+  font-size: 0.875rem;
+  color: var(--paper-2);
+  margin-top: 2px;
+}
+
+.mz-rate-leader {
+  flex-grow: 1;
+  border-bottom: 2px dotted var(--paper);
+  margin: 0 12px;
+  position: relative;
+  top: -4px;
+}
+
+.mz-rate-price {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}

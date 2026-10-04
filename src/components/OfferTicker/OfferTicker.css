@@ -1,0 +1,140 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   OfferTicker — Premium scrolling offer bar
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.mz-ticker {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: var(--night);           /* #0B1F20 — rich dark teal-black */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Subtle top highlight line */
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Gradient fade mask on edges ──────────────────────────────────────── */
+.mz-ticker-fade {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mz-ticker-fade--left {
+  left: 0;
+  background: linear-gradient(to right, var(--night) 0%, transparent 100%);
+}
+
+.mz-ticker-fade--right {
+  right: 0;
+  background: linear-gradient(to left, var(--night) 0%, transparent 100%);
+}
+
+/* ── Scrolling track ──────────────────────────────────────────────────── */
+.mz-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  width: max-content;
+
+  /* 60s per full loop — slow, elegant scroll */
+  animation: mz-ticker-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.mz-ticker-track--paused {
+  animation-play-state: paused;
+}
+
+@keyframes mz-ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Individual slide ─────────────────────────────────────────────────── */
+.mz-ticker-slide {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 32px;
+  height: 40px;
+}
+
+/* ── Text atoms ───────────────────────────────────────────────────────── */
+.mz-ticker-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.015em;
+}
+
+.mz-ticker-prep {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.02em;
+}
+
+.mz-ticker-sep {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 0 8px;
+  letter-spacing: 0;
+}
+
+/* ── Bank pills ───────────────────────────────────────────────────────── */
+.mz-ticker-banks {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mz-ticker-bank-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background-color: var(--pill-color, #333);
+  /* Subtle gloss border */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 1px 3px rgba(0,0,0,0.4);
+  white-space: nowrap;
+}
+
+/* ── Store offer badge ────────────────────────────────────────────────── */
+.mz-ticker-store-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 3px;
+  background: var(--teal);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 1px 4px rgba(14,156,152,0.4);
+}
+
+/* ── Reduced motion: freeze the scroll ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .mz-ticker-track {
+    animation: none;
+    /* Show just the first few items, overflowing hidden */
+  }
+}

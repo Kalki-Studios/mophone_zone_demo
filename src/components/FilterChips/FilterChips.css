@@ -1,0 +1,47 @@
+.mz-filter-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: -8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mz-filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.mz-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px;
+  background-color: transparent;
+  color: var(--ink);
+  border: 1.5px solid #dcdcdc;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mz-chip:hover {
+  border-color: var(--ink);
+}
+
+.mz-chip-active {
+  background-color: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.mz-chip:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

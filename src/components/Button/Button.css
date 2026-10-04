@@ -1,0 +1,57 @@
+.mz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  padding: 0 20px;
+  border: var(--line);
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-hard);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none !important;
+  transition: transform 0.1s, box-shadow 0.1s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mz-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-hard-sm);
+}
+
+.mz-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.mz-btn-icon {
+  font-size: 1.25em;
+}
+
+.mz-btn-primary {
+  background-color: var(--teal);
+  color: var(--ink);
+}
+
+.mz-btn-whatsapp {
+  background-color: var(--wa);
+  color: var(--ink);
+}
+
+.mz-btn-outline {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.mz-btn-dark {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Ensure focus ring contrasts on dark background if necessary, 
+   though global focus ring uses teal which works on paper and outline. 
+   For dark, yellow is used by global .night-bg but maybe button itself 
+   needs it if placed there. It's handled by .night-bg in base.css */

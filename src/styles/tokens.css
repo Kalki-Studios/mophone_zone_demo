@@ -1,0 +1,39 @@
+:root {
+  /* colour */
+  --paper:   #FFFFFF;  /* page background */
+  --paper-2: #F7F7F7;  /* alternate band, image backgrounds */
+  --ink:     #15171A;  /* text, borders, shadows */
+  --teal:    #0E9C98;  /* brand accent: buttons, links, big shapes */
+  --yellow:  #FFC93C;  /* price tags, offer stickers */
+  --red:     #E5482D;  /* SOLD / sale stamps only */
+  --grey:    #6B665E;  /* secondary text */
+  --night:   #0B1F20;  /* dark band (repair) and footer */
+  --wa:      #25D366;  /* WhatsApp button only */
+
+  /* type */
+  --font-display: "Archivo Variable", "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-body:    "Public Sans", "Noto Sans Oriya", "Noto Sans Devanagari", Arial, sans-serif;
+  --font-hand:    "Kalam", cursive;
+
+  /* shape */
+  --line: 2px solid var(--ink);
+  --shadow-hard:    4px 4px 0 var(--ink);
+  --shadow-hard-sm: 2px 2px 0 var(--ink);
+  --r-1: 2px;
+  --r-2: 4px;
+  --r-3: 8px;
+
+  /* space (4px base) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+
+  /* layout */
+  --container: 1160px;
+  --gutter: 20px;          /* 32px from 900px up */
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 32px;
+  }
+}
