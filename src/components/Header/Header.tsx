@@ -66,7 +66,7 @@ export const Header = () => {
               <SiInstagram size={20} />
             </a>
           )}
-          {shopInfo.facebook.url && (
+          {shopInfo.facebook?.url && (
             <a href={shopInfo.facebook.url} target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Facebook">
               <SiFacebook size={20} />
             </a>
@@ -109,7 +109,7 @@ export const Header = () => {
                   <SiInstagram size={24} color="var(--ink)" />
                 </a>
               )}
-              {shopInfo.facebook.url && (
+              {shopInfo.facebook?.url && (
                 <a href={shopInfo.facebook.url} target="_blank" rel="noreferrer" className="mz-icon-link" aria-label="Facebook">
                   <SiFacebook size={24} color="var(--ink)" />
                 </a>

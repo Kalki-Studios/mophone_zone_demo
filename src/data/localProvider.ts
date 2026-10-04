@@ -104,6 +104,7 @@ export const localProvider: DataProvider = {
     if (!data.phones) data.phones = initialShopInfo.phones;
     if (!data.address) data.address = initialShopInfo.address;
     if (!data.instagram) data.instagram = initialShopInfo.instagram;
+    if (!data.facebook) data.facebook = initialShopInfo.facebook;
     
     return data;
   },

@@ -56,7 +56,7 @@ export const Footer = () => {
                   <SiInstagram /> Instagram
                 </a>
               )}
-              {shopInfo.facebook.url && shopInfo.facebook.handle && (
+              {shopInfo.facebook?.url && shopInfo.facebook?.handle && (
                 <a href={shopInfo.facebook.url} target="_blank" rel="noopener noreferrer" className="mz-footer-social">
                   <SiFacebook /> Facebook
                 </a>
