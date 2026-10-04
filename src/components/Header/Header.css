@@ -137,6 +137,17 @@
   color: var(--teal);
 }
 
+.mz-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.mz-icon-link:hover {
+  text-decoration: none !important;
+}
+
 
 /* ─── Mobile controls ───────────────────────────────────────────────────── */
 .mz-mobile-controls {

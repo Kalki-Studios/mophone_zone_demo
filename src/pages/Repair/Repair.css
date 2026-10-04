@@ -75,12 +75,22 @@
 }
 
 .mz-repair-trust-pills span {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #555;
-  background: #f3f3f3;
-  border-radius: 20px;
-  padding: 6px 14px;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+}
+
+.mz-repair-pill-icon {
+  color: var(--teal);
 }
 
 .mz-repair-hero-image {
@@ -130,9 +140,16 @@
 }
 
 .mz-repair-why-icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 16px;
+  font-size: 1.8rem;
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 .mz-repair-why-card h3 {
@@ -195,24 +212,37 @@
   position: relative;
   background: #fff;
   border-radius: 20px;
-  padding: 28px 20px 24px;
+  padding: 36px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 10px;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  gap: 14px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .mz-repair-service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  border-color: #e0e0e0;
 }
 
 .mz-repair-svc-icon {
-  font-size: 2.2rem;
-  line-height: 1;
-  margin-bottom: 4px;
+  font-size: 2rem;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #f4f4f4;
+  border-radius: 50%;
+  margin-bottom: 8px;
 }
 
 .mz-repair-service-card h3 {
@@ -224,165 +254,106 @@
   line-height: 1.3;
 }
 
-.mz-repair-service-card p {
-  font-size: 0.82rem;
-  color: #777;
-  line-height: 1.5;
-  margin: 0;
-  flex-grow: 1;
-}
-
-.mz-repair-svc-meta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 12px;
-  border-top: 1px solid #f0f0f0;
-  width: 100%;
-}
-
-.mz-repair-svc-price {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
-.mz-repair-svc-time {
-  font-size: 0.78rem;
-  color: #999;
-  font-weight: 600;
-}
-
-.mz-repair-svc-btn {
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-  margin-top: 4px;
-}
 
 /* ──────────────────────────────────────────────────────────────────────────
    4. Brands
    ────────────────────────────────────────────────────────────────────────── */
 .mz-repair-brands-section {
   background: #fff;
-  padding: 80px 24px;
+  padding: 40px 24px;
 }
 
 @media (min-width: 900px) {
   .mz-repair-brands-section {
-    padding: 100px 60px;
+    padding: 50px 60px;
   }
 }
 
-.mz-repair-brands-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+.mz-repair-brands-marquee {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
 }
 
-.mz-repair-brands-grid {
+/* Optional: fade out edges of marquee */
+.mz-repair-brands-marquee::before,
+.mz-repair-brands-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+.mz-repair-brands-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+.mz-repair-brands-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+
+.mz-repair-brands-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 16px;
+  padding-left: 16px; /* equal to gap to maintain spacing when looping */
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.mz-repair-brands-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
 }
 
 .mz-repair-brand-chip {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #f5f5f5;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #eaeaea;
   border-radius: 40px;
-  padding: 10px 20px 10px 14px;
-  transition: background 0.2s, transform 0.2s;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .mz-repair-brand-chip:hover {
-  background: #ebebeb;
-  transform: scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.mz-repair-brand-chip img {
-  height: 22px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(1);
-}
-
-.mz-repair-brand-chip span {
-  font-weight: 700;
-  font-size: 0.85rem;
+.mz-repair-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--ink);
+  opacity: 0.8;
+  transition: opacity 0.2s;
 }
 
-/* ──────────────────────────────────────────────────────────────────────────
-   5. How It Works
-   ────────────────────────────────────────────────────────────────────────── */
-.mz-repair-how-section {
-  background: #fafafa;
-  padding: 80px 24px;
+.mz-repair-brand-chip:hover .mz-repair-brand-icon {
+  opacity: 1;
 }
 
-@media (min-width: 900px) {
-  .mz-repair-how-section {
-    padding: 100px 60px;
-  }
-}
-
-.mz-repair-how-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.mz-repair-steps {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 8px;
-}
-
-@media (min-width: 900px) {
-  .mz-repair-steps {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-  }
-}
-
-.mz-repair-step {
-  text-align: center;
-  padding: 32px 20px;
-  background: #fff;
-  border-radius: 20px;
-}
-
-.mz-repair-step-num {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 900;
-  color: #f0f0f0;
-  line-height: 1;
-  margin-bottom: 12px;
-  letter-spacing: -0.04em;
-}
-
-.mz-repair-step h3 {
-  font-family: var(--font-body);
-  font-weight: 700;
+.mz-repair-brand-chip span:last-child {
+  font-weight: 600;
   font-size: 0.95rem;
   color: var(--ink);
-  margin: 0 0 10px;
 }
 
-.mz-repair-step p {
-  font-size: 0.82rem;
-  color: #888;
-  line-height: 1.55;
-  margin: 0;
-}
+
 
 /* ──────────────────────────────────────────────────────────────────────────
    6. FAQ

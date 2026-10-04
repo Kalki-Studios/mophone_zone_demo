@@ -101,16 +101,36 @@
 
 /* ── Grid ─────────────────────────────────────────────────────────────────── */
 .mz-accessories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 64px;
 }
 
+.mz-acc-card {
+  flex: 0 0 calc(50% - 8px);
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .mz-acc-card {
+    flex: 0 0 calc(33.333% - 11px);
+  }
+}
+
 @media (min-width: 900px) {
   .mz-accessories-grid {
-    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+  }
+  .mz-acc-card {
+    flex: 0 0 calc(33.333% - 14px); /* 3 items per row on tablet/desktop, centering the last two */
+  }
+}
+
+@media (min-width: 1200px) {
+  .mz-acc-card {
+    flex: 0 0 calc(20% - 16px); /* 5 items in one row on very large screens */
   }
 }
 

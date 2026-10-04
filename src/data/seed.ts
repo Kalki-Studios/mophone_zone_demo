@@ -148,20 +148,20 @@ export const sampleAccessories: AccessoryCategory[] = [
 
 export const initialShopInfo: ShopInfo = {
   openTime: "10:00",
-  closeTime: "21:30",
+  closeTime: "21:00",
   openDays: [0, 1, 2, 3, 4, 5, 6],
-  openDaysConfirmed: false,
-  phones: { primary: "TODO_CONFIRM", secondary: "TODO_CONFIRM" },
-  whatsappNumber: "TODO_CONFIRM",
-  email: "TODO_CONFIRM",
-  instagram: { handle: "TODO_CONFIRM", url: "TODO_CONFIRM" },
+  openDaysConfirmed: true,
+  phones: { primary: "918093171718", secondary: "" },
+  whatsappNumber: "918093171718",
+  email: "mophonezone@gmail.com",
+  instagram: { handle: "mo.phonezone", url: "https://www.instagram.com/mo.phonezone" },
   address: {
-    line1: "TODO_CONFIRM",
-    town: "TODO_CONFIRM",
-    district: "TODO_CONFIRM",
-    state: "TODO_CONFIRM",
-    pin: "TODO_CONFIRM"
+    line1: "Infront of Reliance Smart, Main Road, near Bata Showroom",
+    town: "Semiliguda",
+    district: "Koraput",
+    state: "Odisha",
+    pin: "764036"
   },
-  studioCredit: "TODO_CONFIRM",
-  demoMode: true
+  studioCredit: "© 2026 Mo PhoneZone",
+  demoMode: false
 };

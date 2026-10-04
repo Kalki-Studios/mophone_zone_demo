@@ -4,6 +4,7 @@ import './Home.css';
 import { useData } from '../../data/DataContext';
 import { PhoneCarousel } from '../../components/PhoneCarousel/PhoneCarousel';
 import { buildWhatsappLink } from '../../lib/whatsapp';
+import { FiSmartphone, FiBattery, FiZap, FiDroplet } from 'react-icons/fi';
 
 /* ── Static sample phones shown in the "Latest & Greatest" grid ── */
 const SAMPLE_PHONES = {
@@ -104,7 +105,6 @@ export default function Home() {
 
       {/* ── 2. Latest & Greatest ── */}
       <section className="mz-samsung-section">
-        <p className="mz-section-eyebrow">Handpicked for you</p>
         <h2 className="mz-samsung-section-title">Latest &amp; Greatest</h2>
 
         {/* Tabs — only New / Refurbished */}
@@ -200,30 +200,27 @@ export default function Home() {
       {/* ── 3. Repair Banner ── */}
       <section className="mz-samsung-promo-banner">
         <div className="mz-samsung-promo-content">
-          <p className="mz-section-eyebrow">Same-day service available</p>
-          <h2>Screen cracked?<br />We'll fix it fast.</h2>
+          <h2>Your Trusted Local Store.<br />Sales &amp; Fast Repairs.</h2>
           <p>
-            Genuine parts · Expert hands · Most repairs done in under 60 minutes.
-            Screen, battery, charging port, water damage — we handle it all.
+            From the latest smartphones and premium accessories to expert repair services 
+            done in under 60 minutes. We are Damanjodi's go-to destination for all things mobile.
           </p>
 
           {/* Quick service chips */}
           <ul className="mz-repair-chips">
-            <li>📱 Screen Replacement</li>
-            <li>🔋 Battery Replacement</li>
-            <li>🔌 Charging Port</li>
-            <li>💧 Water Damage</li>
+            <li><FiSmartphone size={16} className="mz-chip-icon" /> Screen Replacement</li>
+            <li><FiBattery size={16} className="mz-chip-icon" /> Battery Replacement</li>
+            <li><FiZap size={16} className="mz-chip-icon" /> Charging Port</li>
+            <li><FiDroplet size={16} className="mz-chip-icon" /> Water Damage</li>
           </ul>
 
           <div className="mz-samsung-promo-actions">
             <Link to="/repair" className="mz-samsung-btn-primary">View all services</Link>
             <a
-              href={`https://wa.me/${shopInfo.whatsappNumber}?text=${encodeURIComponent('Hi, I need a phone repair quote.')}`}
+              href={`tel:+${shopInfo.phones.primary}`}
               className="mz-samsung-btn-outline"
-              target="_blank"
-              rel="noreferrer"
             >
-              Get a quote
+              Enquire
             </a>
           </div>
         </div>

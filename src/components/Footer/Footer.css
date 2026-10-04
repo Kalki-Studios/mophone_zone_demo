@@ -1,7 +1,9 @@
 .mz-footer {
-  background-color: var(--night);
-  color: var(--paper);
-  padding: var(--s-8) 0;
+  background-color: #f7f7f7;
+  color: var(--ink);
+  padding: 60px 0 30px;
+  border-top: 1px solid #e0e0e0;
+  font-family: var(--font-body);
 }
 
 .mz-footer-container {
@@ -10,22 +12,11 @@
   padding: 0 var(--gutter);
 }
 
-.mz-footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: var(--s-6);
-}
-
-.mz-wordmark-icon-footer {
-  color: var(--paper);
-}
-
 .mz-footer-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--s-6);
-  margin-bottom: var(--s-8);
+  gap: 40px;
+  margin-bottom: 60px;
 }
 
 @media (min-width: 640px) {
@@ -36,50 +27,59 @@
 
 @media (min-width: 900px) {
   .mz-footer-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* We now have 4 columns */
   }
 }
 
+.mz-footer-col strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
 .mz-footer-col p {
-  margin-top: var(--s-2);
-  margin-bottom: 0;
-  color: var(--paper-2);
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 .mz-footer-col a {
-  color: var(--paper-2);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .mz-footer-col a:hover {
   color: var(--teal);
+  text-decoration: underline;
 }
 
 .mz-footer-social {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none !important;
+  gap: 8px;
 }
 
 .mz-footer-small {
-  font-size: 0.875rem;
-  color: var(--grey) !important;
+  font-size: 0.85rem !important;
+  color: #777 !important;
 }
 
+/* Bottom Section */
 .mz-footer-bottom {
   display: flex;
   flex-direction: column;
-  gap: var(--s-2);
-  padding-top: var(--s-6);
-  border-top: 1px solid rgba(243, 237, 226, 0.1);
-  font-size: 0.875rem;
-  color: var(--grey);
+  gap: 24px;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .mz-footer-bottom {
     flex-direction: row;
     justify-content: space-between;
@@ -87,6 +87,40 @@
   }
 }
 
+.mz-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.mz-wordmark-icon-footer {
+  color: var(--ink);
+}
+
+.mz-wordmark-mo {
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.mz-footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+@media (min-width: 768px) {
+  .mz-footer-legal {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    text-align: right;
+  }
+}
+
 .mz-footer-demo {
-  color: var(--grey);
+  color: #d32f2f;
+  font-weight: 600;
 }

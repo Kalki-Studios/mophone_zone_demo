@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { MenuIcon, CloseIcon } from '../icons';
+import { SiInstagram, SiFacebook } from 'react-icons/si';
+import { FiPhone } from 'react-icons/fi';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { Button } from '../Button/Button';
 import { useLanguage } from '../../i18n';
@@ -57,9 +59,18 @@ export const Header = () => {
         </nav>
 
         {/* Right: Actions */}
-        <div className="mz-header-right mz-desktop-only">
-          <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" className="mz-header-link">SOCIAL MEDIA</a>
-          <a href={phoneHref} className="mz-header-link">CALL</a>
+        <div className="mz-header-right mz-desktop-only" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          {shopInfo.instagram.url && (
+            <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Instagram">
+              <SiInstagram size={20} />
+            </a>
+          )}
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Facebook">
+            <SiFacebook size={20} />
+          </a>
+          <a href={phoneHref} className="mz-header-link mz-icon-link" aria-label="Call">
+            <FiPhone size={22} />
+          </a>
         </div>
 
         {/* Mobile controls */}
@@ -89,8 +100,19 @@ export const Header = () => {
             <Link to="/accessories" onClick={closeMenu}>{t('nav.accessories')}</Link>
             <Link to="/repair" onClick={closeMenu}>{t('nav.repair')}</Link>
             <a href="https://maps.app.goo.gl/QzMpto9oU3TcisU6A" target="_blank" rel="noreferrer" onClick={closeMenu}>{t('nav.visit')}</a>
-            <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" onClick={closeMenu}>SOCIAL MEDIA</a>
-            <a href={phoneHref} onClick={closeMenu}>CALL</a>
+            <div style={{ display: 'flex', gap: '24px', padding: '16px 0', alignItems: 'center' }}>
+              {shopInfo.instagram.url && (
+                <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" className="mz-icon-link" aria-label="Instagram">
+                  <SiInstagram size={24} color="var(--ink)" />
+                </a>
+              )}
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="mz-icon-link" aria-label="Facebook">
+                <SiFacebook size={24} color="var(--ink)" />
+              </a>
+              <a href={phoneHref} onClick={closeMenu} className="mz-icon-link" aria-label="Call">
+                <FiPhone size={26} color="var(--ink)" />
+              </a>
+            </div>
           </nav>
 
           <div className="mz-mobile-menu-actions">

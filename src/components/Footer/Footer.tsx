@@ -10,16 +10,9 @@ export const Footer = () => {
   const { shopInfo } = useData();
 
   return (
-    <footer className="mz-footer night-bg">
+    <footer className="mz-footer">
       <div className="mz-footer-container">
         
-        <div className="mz-footer-brand">
-          <PhoneIcon width="24" height="24" className="mz-wordmark-icon-footer" />
-          <span className="mz-wordmark-text">
-            <span className="mz-wordmark-mo">Mo</span> PhoneZone
-          </span>
-        </div>
-
         <div className="mz-footer-grid">
           <div className="mz-footer-col">
             <strong>Address</strong>
@@ -33,14 +26,15 @@ export const Footer = () => {
           <div className="mz-footer-col">
             <strong>Contact</strong>
             <p>
-              <a href={`tel:+${shopInfo.phones.primary}`}>+{shopInfo.phones.primary}</a><br />
-              <a href={`tel:+${shopInfo.phones.secondary}`}>+{shopInfo.phones.secondary}</a><br />
-              <a href={`mailto:${shopInfo.email}`}>{shopInfo.email}</a>
-            </p>
-            <p style={{ marginTop: '16px' }}>
-              <a href={shopInfo.instagram.url} target="_blank" rel="noopener noreferrer" className="mz-footer-social">
-                <SiInstagram /> @{shopInfo.instagram.handle}
-              </a>
+              {shopInfo.phones.primary && (
+                <><a href={`tel:+${shopInfo.phones.primary}`}>+{shopInfo.phones.primary}</a><br /></>
+              )}
+              {shopInfo.phones.secondary && (
+                <><a href={`tel:+${shopInfo.phones.secondary}`}>+{shopInfo.phones.secondary}</a><br /></>
+              )}
+              {shopInfo.email && (
+                <a href={`mailto:${shopInfo.email}`}>{shopInfo.email}</a>
+              )}
             </p>
           </div>
 
@@ -50,19 +44,41 @@ export const Footer = () => {
               {shopInfo.openTime} - {shopInfo.closeTime}
             </p>
             <p className="mz-footer-small">
-              {shopInfo.openDaysConfirmed ? `Days open: ${shopInfo.openDays.join(', ')}` : t('visit.daysTbc')}
+              {shopInfo.openDaysConfirmed ? 'Monday - Sunday' : t('visit.daysTbc')}
+            </p>
+          </div>
+
+          <div className="mz-footer-col">
+            <strong>Follow Us</strong>
+            <p>
+              {shopInfo.instagram.url && shopInfo.instagram.handle && (
+                <a href={shopInfo.instagram.url} target="_blank" rel="noopener noreferrer" className="mz-footer-social">
+                  <SiInstagram /> Instagram
+                </a>
+              )}
             </p>
           </div>
         </div>
 
         <div className="mz-footer-bottom">
-          <span className="mz-footer-credit">{shopInfo.studioCredit}</span>
-          {shopInfo.demoMode && (
-            <span className="mz-footer-demo">{t('footer.demo')}</span>
-          )}
+          <div className="mz-footer-brand">
+            <PhoneIcon width="20" height="20" className="mz-wordmark-icon-footer" />
+            <span className="mz-wordmark-text">
+              <span className="mz-wordmark-mo">Mo</span> PhoneZone
+            </span>
+          </div>
+          
+          <div className="mz-footer-legal">
+            <span className="mz-footer-credit">{shopInfo.studioCredit}</span>
+            {shopInfo.demoMode && (
+              <span className="mz-footer-demo">{t('footer.demo')}</span>
+            )}
+            <span className="mz-footer-copyright">© 2026 Mo PhoneZone. All rights reserved.</span>
+          </div>
         </div>
         
       </div>
     </footer>
   );
 };
+

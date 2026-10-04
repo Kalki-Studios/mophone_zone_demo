@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 import { useData } from '../../data/DataContext';
 import { buildWhatsappLink } from '../../lib/whatsapp';
 import './Repair.css';
+import { 
+  FiSmartphone, FiBattery, FiZap, FiDroplet, FiCamera, 
+  FiVolume2, FiMonitor, FiShield, FiClock, FiTool, FiDollarSign, FiPhoneCall
+} from 'react-icons/fi';
+import { 
+  SiSamsung, SiApple, SiGoogle, SiOneplus, 
+  SiXiaomi, SiOppo, SiVivo, SiMotorola 
+} from 'react-icons/si';
 
 /* ─── Static repair services ─── */
 const REPAIR_SERVICES = [
   {
     id: 'screen',
-    icon: '📱',
+    icon: <FiSmartphone size={32} />,
     title: 'Screen Replacement',
     desc: 'Cracked or unresponsive display? We replace with OEM-grade panels for crystal-clear visuals.',
     priceFrom: 799,
@@ -16,7 +24,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'battery',
-    icon: '🔋',
+    icon: <FiBattery size={32} />,
     title: 'Battery Replacement',
     desc: 'Poor battery life or unexpected shutdowns? Genuine-capacity cells, proper calibration.',
     priceFrom: 499,
@@ -25,7 +33,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'charging',
-    icon: '🔌',
+    icon: <FiZap size={32} />,
     title: 'Charging Port Repair',
     desc: 'Loose connector or no charging? We clean or replace the port to restore full power.',
     priceFrom: 299,
@@ -34,7 +42,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'water',
-    icon: '💧',
+    icon: <FiDroplet size={32} />,
     title: 'Water Damage Recovery',
     desc: 'Dropped in water? Bring it in immediately. Ultrasonic cleaning + board-level repair.',
     priceFrom: 999,
@@ -43,7 +51,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'camera',
-    icon: '📷',
+    icon: <FiCamera size={32} />,
     title: 'Camera Repair',
     desc: 'Blurry images, black screen, or cracked lens? Full front and rear camera module replacement.',
     priceFrom: 599,
@@ -52,7 +60,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'speaker',
-    icon: '🔊',
+    icon: <FiVolume2 size={32} />,
     title: 'Speaker / Mic Repair',
     desc: 'No sound or muffled audio during calls? We replace earpiece, loudspeaker, or microphone.',
     priceFrom: 349,
@@ -61,7 +69,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'software',
-    icon: '🖥️',
+    icon: <FiMonitor size={32} />,
     title: 'Software & Flashing',
     desc: 'Stuck in boot loop, factory reset, or software update issues? Fast firmware flashing.',
     priceFrom: 199,
@@ -70,7 +78,7 @@ const REPAIR_SERVICES = [
   },
   {
     id: 'back',
-    icon: '🛡️',
+    icon: <FiShield size={32} />,
     title: 'Back Panel Replacement',
     desc: 'Cracked glass back? We replace it to restore your phone\'s premium look and feel.',
     priceFrom: 399,
@@ -80,21 +88,21 @@ const REPAIR_SERVICES = [
 ];
 
 const BRANDS = [
-  { name: 'Samsung', icon: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-  { name: 'Apple', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-  { name: 'OnePlus', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/OnePlus_Logo.svg' },
-  { name: 'Redmi', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg' },
-  { name: 'realme', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Realme_logo.svg' },
-  { name: 'OPPO', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/OPPO_LOGO_2019.svg' },
-  { name: 'vivo', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Vivo_logo_2019.svg' },
-  { name: 'Motorola', icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Motorola_logo_2013.svg' },
+  { name: 'Samsung', icon: <SiSamsung size={40} />, hideName: true },
+  { name: 'Apple', icon: <SiApple size={24} /> },
+  { name: 'Google', icon: <SiGoogle size={24} /> },
+  { name: 'OnePlus', icon: <SiOneplus size={24} /> },
+  { name: 'Redmi', icon: <SiXiaomi size={24} /> },
+  { name: 'OPPO', icon: <SiOppo size={40} />, hideName: true },
+  { name: 'vivo', icon: <SiVivo size={40} />, hideName: true },
+  { name: 'Motorola', icon: <SiMotorola size={24} /> },
 ];
 
 const WHY_US = [
-  { icon: '⚡', title: 'Same-Day Service', desc: 'Most repairs done in under 60 minutes while you wait.' },
-  { icon: '🔩', title: 'Genuine Parts', desc: 'OEM-grade components for lasting quality you can trust.' },
-  { icon: '🛡️', title: '30-Day Warranty', desc: 'All repairs backed by our service warranty — no questions asked.' },
-  { icon: '💰', title: 'Transparent Pricing', desc: 'No hidden costs. Get a free quote before we start anything.' },
+  { icon: <FiClock size={28} />, title: 'Same-Day Service', desc: 'Most repairs done in under 60 minutes while you wait.' },
+  { icon: <FiTool size={28} />, title: 'Genuine Parts', desc: 'OEM-grade components for lasting quality you can trust.' },
+  { icon: <FiShield size={28} />, title: '30-Day Warranty', desc: 'All repairs backed by our service warranty — no questions asked.' },
+  { icon: <FiDollarSign size={28} />, title: 'Transparent Pricing', desc: 'No hidden costs. Get a free quote before we start anything.' },
 ];
 
 export default function Repair() {
@@ -112,7 +120,6 @@ export default function Repair() {
       {/* ── 1. Hero ── */}
       <section className="mz-repair-hero">
         <div className="mz-repair-hero-content">
-          <p className="mz-section-eyebrow">Expert technicians · Same-day service</p>
           <h1 className="mz-repair-hero-title">
             We Fix Phones.<br />Fast &amp; Right.
           </h1>
@@ -121,17 +128,14 @@ export default function Repair() {
             Bring your device in or chat with us to get a free quote.
           </p>
           <div className="mz-repair-hero-actions">
-            <a href={quoteLink} className="mz-samsung-btn-primary" target="_blank" rel="noreferrer">
-              Get a Free Quote
-            </a>
             <a href={`tel:${shopInfo.phones.primary}`} className="mz-samsung-btn-outline">
               Call Us Now
             </a>
           </div>
           <div className="mz-repair-trust-pills">
-            <span>⚡ 60-min turnaround</span>
-            <span>🔩 Genuine parts</span>
-            <span>🛡️ 30-day warranty</span>
+            <span><FiClock size={16} className="mz-repair-pill-icon" /> 60-min turnaround</span>
+            <span><FiTool size={16} className="mz-repair-pill-icon" /> Genuine parts</span>
+            <span><FiShield size={16} className="mz-repair-pill-icon" /> 30-day warranty</span>
           </div>
         </div>
         <div className="mz-repair-hero-image">
@@ -158,33 +162,23 @@ export default function Repair() {
       {/* ── 3. Services ── */}
       <section className="mz-repair-services-section">
         <div className="mz-repair-services-inner">
-          <p className="mz-section-eyebrow">What we fix</p>
           <h2 className="mz-samsung-section-title">Our Repair Services</h2>
 
           <div className="mz-repair-services-grid">
             {REPAIR_SERVICES.map((svc) => (
-              <div key={svc.id} className="mz-repair-service-card">
+              <a
+                key={svc.id}
+                href={buildWhatsappLink(shopInfo.whatsappNumber, `Hi! I need a quote for: ${svc.title}`)}
+                className="mz-repair-service-card"
+                target="_blank"
+                rel="noreferrer"
+              >
                 {svc.badge && (
                   <span className="mz-product-badge">{svc.badge}</span>
                 )}
                 <div className="mz-repair-svc-icon">{svc.icon}</div>
                 <h3>{svc.title}</h3>
-                <p>{svc.desc}</p>
-                <div className="mz-repair-svc-meta">
-                  <span className="mz-repair-svc-price">
-                    From ₹{svc.priceFrom.toLocaleString('en-IN')}
-                  </span>
-                  <span className="mz-repair-svc-time">⏱ {svc.time}</span>
-                </div>
-                <a
-                  href={buildWhatsappLink(shopInfo.whatsappNumber, `Hi! I need a quote for: ${svc.title}`)}
-                  className="mz-samsung-btn-outline mz-repair-svc-btn"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Get Quote
-                </a>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -192,36 +186,19 @@ export default function Repair() {
 
       {/* ── 4. Supported Brands ── */}
       <section className="mz-repair-brands-section">
-        <div className="mz-repair-brands-inner">
-          <p className="mz-section-eyebrow">Compatible with all major brands</p>
-          <h2 className="mz-samsung-section-title">We Repair All Brands</h2>
-          <div className="mz-repair-brands-grid">
+        <div className="mz-repair-brands-marquee">
+          <div className="mz-repair-brands-track">
             {BRANDS.map((b) => (
-              <div key={b.name} className="mz-repair-brand-chip">
-                <img src={b.icon} alt={b.name} />
-                <span>{b.name}</span>
+              <div key={b.name} className={`mz-repair-brand-chip ${b.hideName ? 'mz-repair-brand-chip-icon-only' : ''}`}>
+                <span className="mz-repair-brand-icon">{b.icon}</span>
+                {!b.hideName && <span>{b.name}</span>}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. How It Works ── */}
-      <section className="mz-repair-how-section">
-        <div className="mz-repair-how-inner">
-          <p className="mz-section-eyebrow">Simple process</p>
-          <h2 className="mz-samsung-section-title">How It Works</h2>
-          <div className="mz-repair-steps">
-            {[
-              { num: '01', title: 'Bring In Your Device', desc: 'Walk in to our store on Main Road, Damanjodi — no appointment needed.' },
-              { num: '02', title: 'Free Diagnosis', desc: 'Our technician inspects your phone and gives you a transparent quote in minutes.' },
-              { num: '03', title: 'We Fix It', desc: 'Approved? We get to work. Most repairs done in under 60 minutes.' },
-              { num: '04', title: 'Pick It Up', desc: 'Your phone, good as new. Backed by our 30-day service warranty.' },
-            ].map((step) => (
-              <div key={step.num} className="mz-repair-step">
-                <div className="mz-repair-step-num">{step.num}</div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+            {/* Duplicate for seamless looping */}
+            {BRANDS.map((b) => (
+              <div key={`${b.name}-dup`} className={`mz-repair-brand-chip ${b.hideName ? 'mz-repair-brand-chip-icon-only' : ''}`}>
+                <span className="mz-repair-brand-icon">{b.icon}</span>
+                {!b.hideName && <span>{b.name}</span>}
               </div>
             ))}
           </div>
@@ -231,7 +208,6 @@ export default function Repair() {
       {/* ── 6. FAQ ── */}
       <section className="mz-repair-faq-section">
         <div className="mz-repair-faq-inner">
-          <p className="mz-section-eyebrow">Got questions?</p>
           <h2 className="mz-samsung-section-title">Frequently Asked</h2>
           <div className="mz-repair-faq-list">
             {[
