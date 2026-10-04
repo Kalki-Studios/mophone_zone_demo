@@ -5,6 +5,7 @@ export const en = {
   "nav.visit": "Visit us",
   "nav.menu": "Menu",
   "nav.close": "Close",
+  "nav.language": "Language",
   "cta.call": "Call",
   "cta.callShop": "Call the shop",
   "cta.whatsapp": "WhatsApp us",

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { MenuIcon, CloseIcon } from '../icons';
-import { SiInstagram, SiFacebook } from 'react-icons/si';
+import { SiInstagram, SiFacebook, SiWhatsapp } from 'react-icons/si';
 import { FiPhone } from 'react-icons/fi';
-import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { Button } from '../Button/Button';
 import { useLanguage } from '../../i18n';
 import { useData } from '../../data/DataContext';
@@ -18,12 +17,14 @@ export const Header = () => {
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('mz-menu-open');
       const handleEscape = (e: KeyboardEvent) => {
         if (e.key === 'Escape') setMenuOpen(false);
       };
       document.addEventListener('keydown', handleEscape);
       return () => {
         document.body.style.overflow = '';
+        document.body.classList.remove('mz-menu-open');
         document.removeEventListener('keydown', handleEscape);
       };
     }
@@ -65,9 +66,11 @@ export const Header = () => {
               <SiInstagram size={20} />
             </a>
           )}
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Facebook">
-            <SiFacebook size={20} />
-          </a>
+          {shopInfo.facebook.url && (
+            <a href={shopInfo.facebook.url} target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Facebook">
+              <SiFacebook size={20} />
+            </a>
+          )}
           <a href={phoneHref} className="mz-header-link mz-icon-link" aria-label="Call">
             <FiPhone size={22} />
           </a>
@@ -106,9 +109,11 @@ export const Header = () => {
                   <SiInstagram size={24} color="var(--ink)" />
                 </a>
               )}
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="mz-icon-link" aria-label="Facebook">
-                <SiFacebook size={24} color="var(--ink)" />
-              </a>
+              {shopInfo.facebook.url && (
+                <a href={shopInfo.facebook.url} target="_blank" rel="noreferrer" className="mz-icon-link" aria-label="Facebook">
+                  <SiFacebook size={24} color="var(--ink)" />
+                </a>
+              )}
               <a href={phoneHref} onClick={closeMenu} className="mz-icon-link" aria-label="Call">
                 <FiPhone size={26} color="var(--ink)" />
               </a>
@@ -116,9 +121,13 @@ export const Header = () => {
           </nav>
 
           <div className="mz-mobile-menu-actions">
-            <LanguageToggle />
-            <Button as="a" href={phoneHref} variant="outline" className="mz-full-width">{t('cta.call')}</Button>
-            <Button as="a" href={whatsappHref} variant="whatsapp" className="mz-full-width">{t('cta.whatsapp')}</Button>
+            <a href={phoneHref} className="mz-mobile-action-btn mz-mobile-call" onClick={closeMenu}>
+              {t('cta.call')}
+            </a>
+            <a href={whatsappHref} className="mz-mobile-action-btn mz-mobile-wa" onClick={closeMenu} target="_blank" rel="noopener noreferrer">
+              <SiWhatsapp size={20} />
+              {t('cta.whatsapp')}
+            </a>
           </div>
         </div>
       )}

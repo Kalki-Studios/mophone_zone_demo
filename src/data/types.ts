@@ -54,6 +54,7 @@ export interface ShopInfo {
   whatsappNumber: string;
   email: string;
   instagram: { handle: string; url: string; };
+  facebook: { handle: string; url: string; };
   address: {
     line1: string;
     town: string;

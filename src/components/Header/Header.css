@@ -212,15 +212,55 @@
 
 .mz-mobile-menu-actions {
   margin-top: auto;
-  padding: var(--s-5) var(--gutter);
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: var(--s-3);
-  background: #f4f4f4;
+  gap: 12px;
+  background: #fff;
+  border-top: 1px solid #eaeaea;
 }
 
-.mz-full-width {
+.mz-mobile-action-lang {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mz-lang-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.mz-mobile-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
+  height: 48px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.mz-mobile-action-btn:active {
+  opacity: 0.7;
+}
+
+.mz-mobile-call {
+  background-color: #f5f5f5;
+  color: var(--ink);
+}
+
+.mz-mobile-wa {
+  background-color: #25D366;
+  color: #fff;
 }
 
 /* ─── Desktop breakpoint ────────────────────────────────────────────────── */

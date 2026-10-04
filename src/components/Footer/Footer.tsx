@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { PhoneIcon } from '../icons';
-import { SiInstagram } from 'react-icons/si';
+import { SiInstagram, SiFacebook } from 'react-icons/si';
 import { useLanguage } from '../../i18n';
 import { useData } from '../../data/DataContext';
 
@@ -50,13 +50,18 @@ export const Footer = () => {
 
           <div className="mz-footer-col">
             <strong>Follow Us</strong>
-            <p>
+            <div className="mz-footer-socials">
               {shopInfo.instagram.url && shopInfo.instagram.handle && (
                 <a href={shopInfo.instagram.url} target="_blank" rel="noopener noreferrer" className="mz-footer-social">
                   <SiInstagram /> Instagram
                 </a>
               )}
-            </p>
+              {shopInfo.facebook.url && shopInfo.facebook.handle && (
+                <a href={shopInfo.facebook.url} target="_blank" rel="noopener noreferrer" className="mz-footer-social">
+                  <SiFacebook /> Facebook
+                </a>
+              )}
+            </div>
           </div>
         </div>
 

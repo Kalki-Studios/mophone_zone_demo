@@ -154,7 +154,8 @@ export const initialShopInfo: ShopInfo = {
   phones: { primary: "918093171718", secondary: "" },
   whatsappNumber: "918093171718",
   email: "mophonezone@gmail.com",
-  instagram: { handle: "mo.phonezone", url: "https://www.instagram.com/mo.phonezone" },
+  instagram: { handle: "mo_phonezone_semiliguda", url: "https://www.instagram.com/mo_phonezone_semiliguda?stkn=YjVjdG45cDI1Mnpu" },
+  facebook: { handle: "Mo PhoneZone", url: "https://www.facebook.com/share/19jTcCVZdv/" },
   address: {
     line1: "Infront of Reliance Smart, Main Road, near Bata Showroom",
     town: "Semiliguda",

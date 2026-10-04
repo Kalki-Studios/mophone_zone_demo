@@ -61,16 +61,17 @@ export const PhoneCarousel = () => {
           <div 
             key={item.id} 
             className="mz-carousel-slide" 
-            style={{ backgroundColor: item.bg, color: item.textColor }}
+            style={{ backgroundColor: item.bg }}
           >
+            <div className="mz-carousel-bg">
+              <img src={item.image} alt={item.title} className="mz-carousel-bg-image" />
+              <div className="mz-carousel-bg-overlay"></div>
+            </div>
+
             <div className="mz-carousel-content">
               <h2 className="mz-carousel-title">{item.title}</h2>
               <p className="mz-carousel-subtitle">{item.subtitle}</p>
               
-              <div className="mz-carousel-image-wrap">
-                <img src={item.image} alt={item.title} className="mz-carousel-image" />
-              </div>
-
               <div className="mz-carousel-price-wrap">
                 <p className="mz-carousel-price">{item.price}</p>
                 <p className="mz-carousel-tax-note">*Inclusive of Bank Offers</p>

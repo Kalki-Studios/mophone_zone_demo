@@ -59,6 +59,12 @@
   text-decoration: underline;
 }
 
+.mz-footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .mz-footer-social {
   display: inline-flex;
   align-items: center;

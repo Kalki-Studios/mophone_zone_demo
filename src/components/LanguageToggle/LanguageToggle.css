@@ -1,28 +1,25 @@
 .mz-lang-toggle {
   display: inline-flex;
-  border: var(--line);
-  border-radius: var(--r-2);
-  overflow: hidden;
-  background-color: var(--paper);
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  padding: 4px;
 }
 
 .mz-lang-btn {
   border: none;
   background: transparent;
-  padding: 6px 12px;
+  padding: 6px 16px;
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.875rem;
-  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #777;
   cursor: pointer;
-  transition: background-color 0.1s, color 0.1s;
+  border-radius: 26px;
+  transition: all 0.2s ease;
 }
 
 .mz-lang-btn.active {
-  background-color: var(--ink);
-  color: var(--paper);
-}
-
-.mz-lang-btn:not(:first-child) {
-  border-left: var(--line);
+  background-color: #fff;
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }

@@ -23,3 +23,7 @@
 .mz-floating-whatsapp:active {
   transform: scale(0.95);
 }
+
+body.mz-menu-open .mz-floating-whatsapp {
+  display: none;
+}
