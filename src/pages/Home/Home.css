@@ -10,7 +10,7 @@
 
 /* ── Section shell ────────────────────────────────────────────────────────── */
 .mz-samsung-section {
-  padding: 64px 20px;
+  padding: 32px 20px; /* Reduced top/bottom padding to reduce white space */
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
@@ -391,7 +391,8 @@
 
 .mz-samsung-promo-image {
   flex: 1;
-  min-height: 380px;
+  min-height: 480px; /* Make the image taller */
+  position: relative; /* Setup for absolute child */
   overflow: hidden;
 }
 
@@ -402,6 +403,9 @@
 }
 
 .mz-samsung-promo-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
