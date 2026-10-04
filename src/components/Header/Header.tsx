@@ -59,7 +59,7 @@ export const Header = () => {
         </nav>
 
         {/* Right: Actions */}
-        <div className="mz-header-right mz-desktop-only" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+        <div className="mz-header-right mz-desktop-only" style={{ gap: '16px', alignItems: 'center' }}>
           {shopInfo.instagram.url && (
             <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" className="mz-header-link mz-icon-link" aria-label="Instagram">
               <SiInstagram size={20} />
