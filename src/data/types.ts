@@ -10,6 +10,7 @@ export interface Phone {
   condition: Condition;
   grade?: Grade;              // only for refurbished / second-hand
   price: number;              // INR, integer
+  mrp?: number;               // INR, integer
   warranty?: string;          // free text
   notes?: string;
   photos: string[];           // paths under /photos/phones/ or data URLs from admin uploads
