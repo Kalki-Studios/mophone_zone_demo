@@ -58,8 +58,8 @@ export const Header = () => {
 
         {/* Right: Actions */}
         <div className="mz-header-right mz-desktop-only">
-          <Link to="/support" className="mz-header-link">Support</Link>
-          <Link to="/business" className="mz-header-link">For Business</Link>
+          <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" className="mz-header-link">SOCIAL MEDIA</a>
+          <a href={phoneHref} className="mz-header-link">CALL</a>
         </div>
 
         {/* Mobile controls */}
@@ -89,8 +89,8 @@ export const Header = () => {
             <Link to="/accessories" onClick={closeMenu}>{t('nav.accessories')}</Link>
             <Link to="/repair" onClick={closeMenu}>{t('nav.repair')}</Link>
             <a href="https://maps.app.goo.gl/QzMpto9oU3TcisU6A" target="_blank" rel="noreferrer" onClick={closeMenu}>{t('nav.visit')}</a>
-            <Link to="/support" onClick={closeMenu}>Support</Link>
-            <Link to="/business" onClick={closeMenu}>For Business</Link>
+            <a href={shopInfo.instagram.url} target="_blank" rel="noreferrer" onClick={closeMenu}>SOCIAL MEDIA</a>
+            <a href={phoneHref} onClick={closeMenu}>CALL</a>
           </nav>
 
           <div className="mz-mobile-menu-actions">
